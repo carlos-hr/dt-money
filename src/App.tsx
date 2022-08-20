@@ -1,10 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App"></div>;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
+      <h1>Dt</h1>
+    </ThemeProvider>
+  );
 }
 
 export default App;

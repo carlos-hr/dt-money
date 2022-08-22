@@ -15,6 +15,22 @@
       "category": "Compra",
       "price": 4000,
       "createdAt": "2022-08-22T15:31:34.378Z"
+    },
+    {
+      "category": "Testando",
+      "description": "Teste",
+      "price": 10000,
+      "type": "income",
+      "createdAt": "2022-08-22T20:32:02.829Z",
+      "id": 3
+    },
+    {
+      "category": "teste",
+      "description": "teste 2",
+      "price": 1000,
+      "type": "outcome",
+      "createdAt": "2022-08-22T20:43:36.519Z",
+      "id": 4
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { Header, SearchForm, Summary } from "../../components";
 import { useTransactions } from "../../hooks/useTransactions";
+import { dateFormatter, priceFormatter } from "../../utils/formattter";
 import {
   PriceHighLight,
   TransactionsContainer,
@@ -23,11 +24,12 @@ const Transactions = () => {
                 <td>{transaction.description}</td>
                 <td>
                   <PriceHighLight variant={transaction.type}>
-                    R${transaction.price}
+                    {transaction.type === "outcome" && "- "}
+                    {priceFormatter.format(transaction.price)}
                   </PriceHighLight>
                 </td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createdAt}</td>
+                <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
               </tr>
             ))}
           </tbody>

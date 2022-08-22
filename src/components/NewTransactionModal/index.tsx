@@ -1,6 +1,5 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
-import { TransactionButton } from "../Header/styled";
 import {
   CloseButton,
   Content,

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { SearchFormContainer } from "./styled";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
+import { useTransactions } from "../../hooks/useTransactions";
 
 const searchFormSchema = zod.object({
   query: zod.string(),
@@ -19,9 +20,10 @@ const SearchForm = () => {
     resolver: zodResolver(searchFormSchema),
   });
 
+  const { fetchTransactions } = useTransactions();
+
   async function onSearchTransactions(data: SearchFormInput) {
-    await new Promise((res) => setTimeout(res, 2000));
-    console.log(data);
+    await fetchTransactions(data.query);
   }
 
   return (

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
 import { api } from "../services/api";
 
@@ -35,7 +35,7 @@ export const TransactionsProvider = ({
 }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get("/transactions", {
       params: {
         _sort: "createdAt",
@@ -46,9 +46,9 @@ export const TransactionsProvider = ({
 
     const { data } = response;
     setTransactions(data);
-  }
+  }, []);
 
-  async function createTransaction(data: NewTransactionData) {
+  const createTransaction = useCallback(async (data: NewTransactionData) => {
     const { category, description, price, type } = data;
     const response = await api.post("/transactions", {
       category,
@@ -59,7 +59,7 @@ export const TransactionsProvider = ({
     });
 
     setTransactions((state) => [response.data, ...state]);
-  }
+  }, []);
 
   useEffect(() => {
     fetchTransactions();

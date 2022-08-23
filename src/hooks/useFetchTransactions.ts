@@ -1,9 +1,9 @@
 import { useContextSelector } from "use-context-selector";
 import { TransactionsContext } from "../contexts/TransactionsContext";
 
-export const useTransactions = () => {
+export const useFetchTransactions = () => {
   return useContextSelector(
     TransactionsContext,
-    (context) => context.transactions
+    (context) => context.fetchTransactions
   );
 };

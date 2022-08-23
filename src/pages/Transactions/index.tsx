@@ -8,7 +8,7 @@ import {
 } from "./styled";
 
 const Transactions = () => {
-  const { transactions } = useTransactions();
+  const transactions = useTransactions();
 
   return (
     <div>
